@@ -1,0 +1,186 @@
+#!/bin/sh
+# 
+# Nom : mkproj
+# 
+# Licence : GPLV3
+# 
+# Auteur : Kropotek
+# 
+# Organisation : FAAL — Anarkhosphère
+#
+# Date : Le 16 février 2019
+#
+# Version : 0.1
+# 
+# Ce script permet de créer une arborescence de dossier pour un nouveau projet d'électronique
+# 
+
+####################################################
+### ––––– Liste des variables des dossiers ––––– ###
+####################################################
+
+dn=$1
+  r0="0—x—xx : Présentation"
+  r1="1—x—xx : Gestion de projet"
+ r11="1—1—xx : Données Clients"
+r111="1—1—1x : Factures"
+r112="1—1—2x : Courriels"
+  r2="2—x—xx : Conception préliminaire"
+  r3="3—x—xx : Conception détaillée"
+ r31="3—1—xx : Dossier justificatif de définition"
+ r32="3—2—xx : Simulation"
+ r33="3—3—xx : Schémas"
+ r34="3—4—xx : Nomenclatures"
+  r4="4—x—xx : Développement"
+ r41="4—1—xx : KiCAD"
+ r42="4—2—xx : Schéma"
+ r43="4—3—xx : Circuits Imprimés"
+  r5="5—x—xx : Test"
+ r51="5—1—xx : Banc de Test"
+ r52="5—2—xx : Procédure de Test"
+  r6="6—x—xx : Fabrication"
+  r7="7—x—xx : Soft"
+ r71="7—1—xx : Codes sources"
+ r72="7—2—xx : Librairies"
+  r8="8—x—xx : VHDL"
+  r9="9—x—xx : Documentations"
+ r91="9—1—xx : Documentation du projet"
+r911="9—1—1x : Datasheet"
+ r92="9—2—xx : Documentation utilisateur"
+ r99="9—9—xx : Poubelle du projet"
+
+### ——————————————————————————— ###
+### ––––– fonction d'aide ––––– ###
+### ——————————————————————————— ###
+
+function usage () {
+	printf "Utilisation du script :\n"
+	printf "\t--fichiers (ou -f) [options]  : Ne crée que les fichiers avec l'extension indiquée;\n"
+	printf "\t--liste    (ou -l)		: Liste l'arborescence des dossiers et fichiers nouvellement crées;\n"
+	printf "\t--info     (ou -i) 		: affiche les informations sur le script;\n"
+	printf "\t--help     (ou -h)		: affiche ce message.\n"
+}
+
+if [ $# -eq 0 ]
+then
+	usage
+fi
+
+########################################
+### ––––– Listes des fonctions ––––– ###
+########################################
+
+### —————————————————————————————————————————————— ###
+### ––––– Cette fonction crée l'arborescence ––––– ###
+### —————————————————————————————————————————————— ###
+
+function mkarbo () {
+	mkdir -p "$dn"/{"$r0","$r1"/"$r11"/{"$r111","$r112"},"$r2","$r3"/{"$r31","$r32","$r33","$r34"},"$r4"/{"$r41","$r42","$r43"},"$r5"/{"$r51","$r52"},"$r6","$r7"/{"$r71","$r72"},"$r8","$r9"/{"$r91"/"$r911","$r92"},"$r99"};
+	touch "$dn"/"$r0"/"0—0—00 — $dn — Présentation du projet.odt";
+    touch "$dn"/"$r0"/"0—0—01 — Index".odt;
+    touch "$dn"/"$r0"/"0—0—02 — Nomenclature générale".odt;
+    touch "$dn"/"$r0"/"0—0—03 — Environnement de Travail".odt;
+    touch "$dn"/"$r1"/"1—0—01 — Cahier des Charges".odt;
+    touch "$dn"/"$r1"/"$r11"/"1—1—01 — Données clients.ods";
+	touch "$dn"/"$r1"/"$r11"/"1—1—02 — Planning.ods";
+    touch "$dn"/"$r1"/"$r11"/"$r111"/"111—0 — Index Factures".ods;
+    touch "$dn"/"$r1"/"$r11"/"$r112"/"112—0 — Index Courriels".ods;
+	touch "$dn"/"$r2"/"2—0—01 — Devis.ods";
+	touch "$dn"/"$r2"/"2—0—02 — Propositions.odt";
+    touch "$dn"/"$r3"/"$r31"/"3—1—0—1 — Document Justificatif de Définition".odt;
+    touch "$dn"/"$r3"/"$r32"/{"3—2—01 — fonction-1".asc,"3—2—02 — fonction-2".asc,"3—2—03 — fonction-3".asc,"3—2—04 — fonction-4".asc,"3—2—05 — fonction-5".asc,"3—2—06 — fonction-6".asc};
+    touch "$dn"/"$r3"/"$r33"/"3—3—01 — Schéma-$dn-Final".sch;
+    touch "$dn"/"$r3"/"$r34"/"3—4—01 — Nomenclatures".odt;
+    touch "$dn"/"$r9"/"$r91"/"9—1—01 — Documentation du projet $dn".odt;
+    touch "$dn"/"$r9"/"$r92"/"9—1—01 — Documentation Utilisateur — $dn".odt;
+}
+
+### —————————————————————————————————————————————— ###
+### ————— Cette fonction crée les différents ————— ###
+### —————    fichiers et leurs extensions    ————— ###
+### —————————————————————————————————————————————— ###
+
+function fichiers () {
+	np=$#
+	dn=$np
+	mkarbo ; echo "$np"; echo "Le projet $dn a bien été créé !";
+	if [ $1 == "-f" ] ; then
+		case "$2" in 
+			w) touch "$dn"/"$r0"/"Présentation du projet.odt";;
+			c) touch "$dn"/"$r1"/"Données clients.ods";;
+		esac
+	fi
+}
+
+### ————————————————————————————————————————————————— ###
+### ––––– Cette fonction affiche l'arborescence ––––– ###
+### ————————————————————————————————————————————————— ###
+
+function liste() {
+	printf "$PWD  		 	\n";
+	printf " ↪  ↳ ⤷ 		\n";
+	printf " \t\t  …… $r0 		    \n";
+	printf " \t\t  …… $r1 		    \n";
+    printf " \t\t↪ …………… $r11       \n";
+    printf " \t\t↪ …………………… $r111   \n";
+    printf " \t\t  …………………… $r112   \n";
+	printf " \t\t  …… $r2 		    \n";
+	printf " \t\t  …… $r3 		    \n";
+	printf " \t\t↪ …………… $r31       \n";
+	printf " \t\t  …………… $r32 	    \n";
+	printf " \t\t  …………… $r33 	    \n";
+	printf " \t\t  …………… $r34 	    \n";
+	printf " \t\t  …… $r4 		    \n";
+	printf " \t\t↪ …………… $r41 	    \n";
+	printf " \t\t  …………… $r42 	    \n";
+	printf " \t\t  …………… $r43 	    \n";
+	printf " \t\t  …… $r5 		    \n";
+	printf " \t\t↪ …………… $r51 	    \n";
+	printf " \t\t  …………… $r52 	    \n";
+	printf " \t\t  …… $r6 		    \n";
+	printf " \t\t  …… $r7 		    \n";
+    printf " \t\t↪ ……………    $r71    \n";
+    printf " \t\t  ……………    $r72    \n";
+	printf " \t\t  …… $r8 		    \n";
+	printf " \t\t  …… $r9 		    \n";
+	printf " \t\t↪ …………… $r91 	    \n";
+    printf " \t\t↪ …………………… $r911   \n";
+	printf " \t\t  …… $r92 	        \n";
+	printf " \t\t  …… $r99 		    \n";
+}	
+
+
+### ——————————————————————————— ###
+### ————— Fonction getopt ————— ###
+### ——————————————————————————— ###
+	
+#OPTS=$( getopt -o f,h,i,l -l fichiers:,help,info,liste -- "$@" ) 
+#if ( $? != 0 )
+#then
+#	exit 1
+#fi
+
+#eval set -- "$OPTS"
+
+while true ; do
+	case "$1" in
+		-h) usage;
+			exit 0;;
+		--help) usage;
+			exit 0;;
+		-l) liste;
+			exit 0;;
+		--liste) liste;
+			exit 0;;
+		-i) info;
+			exit 0;;
+		--info) info;
+			exit 0;;
+		-f) fichiers;
+			shift 2;;
+		--fichiers) fichiers;
+			shift 2;;
+		*) mkarbo ; echo "Le projet $dn a bien été créé !";
+			exit 0;;
+	esac
+done
