@@ -4,4 +4,4 @@ Créer un nouveau projet d'électronique grâce à la mise en place d'une arbore
 ## TODO
 - Terminer l'option -f
 - Créer les fichiers de présentation de chaque dossier (.md)
-- Créer les modèles de fichiers selon la nomenclature choisie.
+- Créer les modèles de fichiers selon la nomenclature choisie sauf pour les fichiers .odt.
