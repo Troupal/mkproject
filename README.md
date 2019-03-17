@@ -9,6 +9,8 @@ Créer un nouveau projet d'électronique grâce à la mise en place d'une arbore
 `user@machine:~$ git clone https://framagit.org/Troupal/mkproject.git` // Télécharge le dossier .git sur le serveur GitLab de FramaGit 
 `user@machine:~$ export PATH=$PATH:$HOME/script` // Exporter dans la viariable d'environnement $PATH le contenu du dossier script
 
+[![asciicast](https://asciinema.org/a/2pQ3U1goLCPSL7ml6BZI7F2KT.svg)](https://asciinema.org/a/2pQ3U1goLCPSL7ml6BZI7F2KT)
+
 ### Installation via wget ou  curl
 
 #### Avec wget
