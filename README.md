@@ -66,6 +66,7 @@ ou bien
 [![asciicast](https://asciinema.org/a/ZVHqQfAYq9qCGNPutY2BDsIdi.svg)](https://asciinema.org/a/ZVHqQfAYq9qCGNPutY2BDsIdi)
 
 ## TODO
-- Terminer l'option -f
-- Créer les fichiers de présentation de chaque dossier (.md)
-- Créer les modèles de fichiers selon la nomenclature choisie sauf pour les fichiers .odt.
+* Terminer l'option -f
+* Créer les fichiers de présentation de chaque dossier (.md)
+* Créer les modèles de fichiers selon la nomenclature choisie sauf pour les fichiers .odt.
+* Créer une gestion des licences.
