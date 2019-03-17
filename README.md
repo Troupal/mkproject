@@ -31,6 +31,26 @@ Créer un nouveau projet d'électronique grâce à la mise en place d'une arbore
 `user@machine:~$ unzip mkproject-master.zip && rm mkproject-master.zip` // Extraire et supprimer l'archive .zip 
 `user@machine:~$ export PATH=$PATH:$HOME/script` // Exporter dans la viariable d'environnement $PATH le contenu du dossier script
 
+## Utilisation du script
+
+L'utilisation de ce script est simple mais si vous avez besoin d'aide il vous suffit, pour afficher l'aide, de taper:
+
+`user@machine:~$ mkproject -h`
+
+Pour afficher l'arborescence des dossier, tapez:
+
+`user@machine:~$ mkproject -l`
+
+Enfin, pour utiliser le script, il vous suffit de taper:
+
+`user@machine:~$ mkproject mon_nom_de_projet`
+
+ou bien
+
+`user@machine:~$ mkproject "Mon nom de projet avec des espaces`
+
+[![asciicast](https://asciinema.org/a/ZVHqQfAYq9qCGNPutY2BDsIdi.svg)](https://asciinema.org/a/ZVHqQfAYq9qCGNPutY2BDsIdi)
+
 ## TODO
 - Terminer l'option -f
 - Créer les fichiers de présentation de chaque dossier (.md)
