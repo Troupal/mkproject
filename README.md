@@ -19,7 +19,7 @@ Créer un nouveau projet d'électronique grâce à la mise en place d'une arbore
 `user@machine:~$ unzip mkproject-master.zip && rm mkproject-master.zip` // Extraire et supprimer l'archive .zip 
 `user@machine:~$ export PATH=$PATH:$HOME/script` // Exporter dans la viariable d'environnement $PATH le contenu du dossier script
 
-[![asciicast](https://asciinema.org/a/EHCtyTKRVP9SOm3N5FdzxqEg0.png)](https://asciinema.org/a/EHCtyTKRVP9SOm3N5FdzxqEg0)
+[![asciicast](https://asciinema.org/a/tEfJX5mRv8Jbegg7pMmdPEFA9.png)](https://asciinema.org/a/tEfJX5mRv8Jbegg7pMmdPEFA9)
 
 #### Avec curl
 
