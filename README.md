@@ -69,4 +69,5 @@ ou bien
 * Terminer l'option -f
 * Créer les fichiers de présentation de chaque dossier (.md)
 * Créer les modèles de fichiers selon la nomenclature choisie sauf pour les fichiers .odt.
+* Créer un modèle .pro pour KiCAD
 * Créer une gestion des licences.
